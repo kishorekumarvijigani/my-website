@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishore Kumar | Java Full Stack Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* NEW COLOR PALETTE */
+            --accent: #8B5CF6; /* Electric Blue */
+            --accent-gradient: linear-gradient(90deg, #3b82f6, #2dd4bf);
+            --bg: #0A0A0A; /* Charcoal Midnight */
+            --card: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #f9fafb;
+            --text-dim: #9ca3af;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 25px 10%;
+            background: rgba(17, 24, 39, 0.9); backdrop-filter: blur(20px);
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border); z-index: 1000;
+        }
+       /* --- LOGO & NAVIGATION COMBINED --- */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+/* The Symbol (Box with K) */
+.logo-symbol {
+    background: var(--accent);
+    color: var(--bg);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+/* Color for the "KUMAR" part of the name */
+.logo span {
+    color: var(--accent);
+}
+
+/* Navigation Links (This makes Home, Experience, etc. visible) */
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-dim); 
+    margin-left: 30px; 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    transition: 0.3s; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+.nav-links a:hover { 
+    color: var(--accent); 
+}
+        /* General Section Styling */
+        section { min-height: 100vh; padding: 140px 10% 80px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+        .section-tag { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; margin-bottom: 15px; display: block; }
+        h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 50px; font-weight: 800; line-height: 1.1; }
+
+        /* MODULE 1: HOME_HERO */
+        #home {
+            background: linear-gradient(rgba(17, 24, 39, 0.7), var(--bg)), url('hero.jpg');
+            background-size: cover; background-position: center; text-align: center;
+        }
+        .hero-h1 { font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 800; line-height: 1; margin-bottom: 25px; letter-spacing: -2px; }
+        .gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* MODULE 2: PROFESSIONAL_EXP */
+        #experience {
+            background: linear-gradient(rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.95)), url('experience.jpg');
+            background-size: cover; background-attachment: fixed;
+        }
+        .exp-grid { display: flex; flex-direction: column; gap: 25px; }
+        .exp-card { background: var(--card); padding: 40px; border-radius: 30px; border: 1px solid var(--border); transition: 0.4s; backdrop-filter: blur(10px); }
+        .exp-card:hover { border-color: var(--accent); transform: scale(1.01); }
+        .exp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .exp-card h3 { color: var(--accent); font-size: 1.6rem; }
+        .exp-card ul { list-style: none; color: var(--text-dim); }
+        .exp-card li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .exp-card li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+
+        /* MODULE 3: TECHNICAL_EXPERTISE */
+        #skills {
+            background: linear-gradient(rgba(17, 24, 39, 0.8), var(--bg)), url('expertise.jpg');
+            background-size: cover;
+        }
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .skill-box { background: var(--card); padding: 35px; border-radius: 25px; border: 1px solid var(--border); }
+        .skill-box h4 { margin-bottom: 20px; font-size: 1.2rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 15px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
+
+        /* MODULE 4: PROJECT_SHOWCASE */
+        #projects {
+            background: linear-gradient(var(--bg), rgba(17, 24, 39, 0.8)), url('project.jpg');
+            background-size: cover;
+        }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+        .project-card { border-radius: 30px; overflow: hidden; background: var(--bg); border: 1px solid var(--border); position: relative; min-height: 450px; display: flex; flex-direction: column; justify-content: flex-end; transition: 0.5s; }
+        .project-img { width: 100%; height: 250px; object-fit: cover; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .project-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,24,39,1), transparent); z-index: 1; }
+        .project-info { position: relative; z-index: 2; padding: 30px; }
+
+        /* MODULE 5: CONTACT (Background added) */
+        #contact { 
+            text-align: center;
+            background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('contact.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .profile-container { margin: 0 auto 30px; width: 180px; height: 180px; position: relative; }
+        .profile-pic { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); box-shadow: 0 0 40px rgba(59, 130, 246, 0.3); }
+        
+        .btn-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+        .btn { padding: 18px 45px; border-radius: 15px; text-decoration: none; font-weight: 800; transition: 0.3s; font-size: 1rem; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4); }
+        .btn-outline { border: 1px solid var(--border); color: #fff; }
+        .btn-outline:hover { background: var(--card); border-color: var(--accent); }
+
+        footer { padding: 60px; text-align: center; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.8rem; letter-spacing: 1px; }
+
+        @media (max-width: 768px) { h2 { font-size: 2rem; } .exp-header { flex-direction: column; align-items: flex-start; } }
+    </style>
+</head>
+<body>
+        <nav>
+    <div class="logo">
+        <div class="logo-symbol">K</div>
+        KISHORE <span>KUMAR</span>
+    </div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+    
+
+    <section id="home">
+        <span class="section-tag">MS IT Management Student</span>
+        <h1 class="hero-h1">Java Full Stack <br><span class="gradient-text">Architect.</span></h1>
+        <p style="color: var(--text-dim); font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px;">Engineering high-performance solutions and enterprise architectures. Specialized in Java 11/17, Spring Boot, and Cloud Operations.</p>
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">Explore Portfolio</a>
+            <a href="#contact" class="btn btn-outline">Let's Connect</a>
+        </div>
+    </section>
+
+    <section id="experience">
+        <span class="section-tag">Career Milestone</span>
+        <h2>Work Experience</h2>
+        <div class="exp-grid">
+            <div class="exp-card">
+                <div class="exp-header">
+                    <h3>Charter Communications</h3>
+                    <span style="font-weight: 700;">10/2022 — 10/2023 | Stamford, USA</span>
+                </div>
+                <p style="color: var(--accent); font-weight: 600; margin-bottom: 15px;">Java Full Stack Developer</p>
+                <ul>
+                    <li>Managed SDLC requirements and design for enterprise telecom systems.</li>
+                    <li>Developed presentation layers with Angular JS and React.js.</li>
+                    <li>Implemented Microservices with Swagger documentation and REST API guidelines.</li>
+                </ul>
+            </div>
+            <div class="exp-card">
+                <div class="exp-header">
+                    <h3>Truist Bank</h3>
+                    <span style="font-weight: 700;">03/2022 — 09/2022 | Charlotte, USA</span>
+                </div>
+                <p style="color: var(--accent); font-weight: 600; margin-bottom: 15px;">Java Full Stack Developer</p>
+                <ul>
+                    <li>Utilized AWS SDK for Java to manage data stores and NoSQL queries.</li>
+                    <li>Developed backend logic with Core Java 17 and high-concurrency Multithreading.</li>
+                    <li>Configured Hibernate deployment descriptors for optimized ORM mapping.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <span class="section-tag">Technical Arsenal</span>
+        <h2>Specialized Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h4>Backend & Core</h4>
+                <div class="tag-cloud">
+                    <span class="tag">Java 11/17</span><span class="tag">Spring Boot</span><span class="tag">Hibernate</span><span class="tag">Microservices</span><span class="tag">SOA</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h4>Frontend & Web</h4>
+                <div class="tag-cloud">
+                    <span class="tag">React.js</span><span class="tag">Angular JS</span><span class="tag">HTML5/CSS3</span><span class="tag">jQuery</span><span class="tag">SASS</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h4>Data & Cloud</h4>
+                <div class="tag-cloud">
+                    <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Oracle 11g</span><span class="tag">PL/SQL</span><span class="tag">NoSQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <span class="section-tag">Featured Work</span>
+        <h2>Selected Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                 <img src="project1.jpg" alt="Enterprise Banking" class="project-img">
+                <div class="project-info">
+                    <h3 style="color: var(--accent);">Enterprise Banking API</h3>
+                    <p style="color: var(--text-dim);">AWS Integrated security architecture for high-volume transaction processing.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                 <img src="project2.jpg" alt="Data Analytics" class="project-img">
+                <div class="project-info">
+                    <h3 style="color: var(--accent);">Cloud Data Migrator</h3>
+                    <p style="color: var(--text-dim);">Automated ETL framework for legacy Oracle to AWS RDS transitions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="profile-container">
+            <img src="profile.jpg" alt="Krishna Kumar" class="profile-pic">
+        </div>
+        <span class="section-tag">Get In Touch</span>
+        <h2>Let's build the future.</h2>
+        <p style="color: var(--text-dim); margin-bottom: 30px;">Cumberland University | MS in IT Management</p>
+        <div class="btn-group">
+            <a href="mailto:krishna.kumar.it@email.com" class="btn btn-primary">Email Me</a>
+            <a href="resume.pdf" download class="btn btn-outline">Download Resume</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Krishna Kumar | Final IT Submission | Cumberland University</p>
+    </footer>
+
+</body>
+</html>
